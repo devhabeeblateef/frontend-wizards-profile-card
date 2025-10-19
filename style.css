@@ -1,0 +1,190 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+article[data-testid="test-profile-card"] {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: max-width 0.3s ease;
+}
+
+header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+h1[data-testid="test-user-name"] {
+    color: #333;
+    margin: 0 0 5px 0;
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+p[data-testid="test-user-bio"] {
+    color: #555;
+    font-size: 0.95em;
+    margin: 0 0 10px 0;
+}
+
+p:has(span[data-testid="test-user-time"]) {
+    color: #999;
+    font-size: 0.75em;
+    margin: 0;
+}
+
+figure {
+    margin: 0 0 20px 0;
+}
+
+img[data-testid="test-user-avatar"] {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+h2 {
+    color: #333;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+nav[data-testid="test-user-social-links"],
+section {
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 5px 5px;
+    font-size: 0.9em;
+}
+
+section li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: #555;
+    padding-left: 10px;
+    position: relative;
+}
+
+section li::before {
+    content: '•';
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+@media (min-width: 600px) {
+    article[data-testid="test-profile-card"] {
+        display: grid;
+        grid-template-areas:
+            "avatar header social"
+            "hobbies dislikes social";
+        grid-template-columns: 140px 1fr 150px;
+        max-width: 750px;
+        padding: 30px;
+        text-align: left;
+    }
+
+    header {
+        grid-area: header;
+        padding-left: 20px;
+        margin-bottom: 0;
+    }
+
+    figure {
+        grid-area: avatar;
+        margin: 0;
+    }
+
+    img[data-testid="test-user-avatar"] {
+        width: 120px;
+        height: 120px;
+    }
+
+    h1[data-testid="test-user-name"] {
+        font-size: 2em;
+    }
+
+    nav[data-testid="test-user-social-links"] {
+        grid-area: social;
+        padding: 0 0 0 20px;
+        border-left: 1px solid #eee;
+    }
+
+    nav h2 {
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    nav li {
+        margin: 5px 0;
+    }
+
+    section:nth-of-type(1) {
+        grid-area: hobbies;
+        padding-right: 20px;
+        padding-left: 0;
+    }
+
+    section:nth-of-type(2) {
+        grid-area: dislikes;
+        border-left: 1px solid #eee;
+        padding-left: 20px;
+    }
+}
