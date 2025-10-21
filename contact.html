@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Profile Card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="main-navigation">
+        <ul>
+            <li><a href="index.html">Profile</a></li>
+            <li><a href="contact.html" aria-current="page">Contact Us</a></li>
+            <li><a href="about.html">About Me</a></li>
+        </ul>
+    </nav>
+
+    <main class="contact-page">
+        <h1>Contact Us</h1>
+        <p>Get in touch with us using the form below. All fields are required.</p>
+        
+        <form class="contact-form" novalidate aria-label="Contact form">
+            <div class="form-group">
+                <label for="contact-name">Full Name <span aria-label="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="contact-name" 
+                    data-testid="test-contact-name" 
+                    required 
+                    aria-describedby="contact-name-error"
+                    aria-invalid="false"
+                >
+                <div id="contact-name-error" class="error-message" data-testid="test-contact-error-name" role="alert" aria-live="polite"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-email">Email Address <span aria-label="required">*</span></label>
+                <input 
+                    type="email" 
+                    id="contact-email" 
+                    data-testid="test-contact-email" 
+                    required 
+                    aria-describedby="contact-email-error"
+                    aria-invalid="false"
+                >
+                <div id="contact-email-error" class="error-message" data-testid="test-contact-error-email" role="alert" aria-live="polite"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-subject">Subject <span aria-label="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="contact-subject" 
+                    data-testid="test-contact-subject" 
+                    required 
+                    aria-describedby="contact-subject-error"
+                    aria-invalid="false"
+                >
+                <div id="contact-subject-error" class="error-message" data-testid="test-contact-error-subject" role="alert" aria-live="polite"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-message">Message <span aria-label="required">*</span></label>
+                <textarea 
+                    id="contact-message" 
+                    data-testid="test-contact-message" 
+                    required 
+                    rows="5"
+                    minlength="10"
+                    aria-describedby="contact-message-error contact-message-help"
+                    aria-invalid="false"
+                    placeholder="Please enter at least 10 characters..."
+                ></textarea>
+                <div id="contact-message-help" class="form-help">Minimum 10 characters required.</div>
+                <div id="contact-message-error" class="error-message" data-testid="test-contact-error-message" role="alert" aria-live="polite"></div>
+            </div>
+
+            <button type="submit" data-testid="test-contact-submit">Send Message</button>
+            
+            <div class="success-message" data-testid="test-contact-success" style="display: none;" role="alert" aria-live="polite">
+                <p>Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+            </div>
+        </form>
+    </main>
+
+    <script src="contact.js"></script>
+</body>
+</html>
